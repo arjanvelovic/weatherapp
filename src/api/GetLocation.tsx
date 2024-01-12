@@ -22,14 +22,18 @@ interface WeatherDetails {
 function GetLocation(hours:number): [any, any, any, any] {
 
     const key = '659effe85cc3c335889818uhkf02452'
+
+    const defaultForm = ({classname: 'ps-2 w-3/5 rounded focus:outline-blue-500', placeholder: 'Input an Address, Zip Code, or City'})
+    const [formValues, setFormValues]=useState("")
+    const [Error, setError] = useState(defaultForm)
     
     const [hourlyweather, setHourly] = useState<WeatherDetails[]>([]);
     const [dailyweather, setDaily] = useState<WeatherDetails[]>([]);
     const [city, setCity] = useState([])
     const [state, setState] = useState([])
 
-    const [lat, setLat] = useState('38.797675')
-    const [lon, setLon] = useState('-104.913634')
+    const [lat, setLat] = useState('40.734554')
+    const [lon, setLon] = useState('-73.886961')
 
     const coordinates = lat + "," + lon
 
@@ -37,6 +41,7 @@ function GetLocation(hours:number): [any, any, any, any] {
       event.preventDefault();
       const target = event.target;
       const userinput = target.userinput.value
+      setFormValues("")
 
       const address = userinput.split(' ').join('+')
 
@@ -50,10 +55,15 @@ function GetLocation(hours:number): [any, any, any, any] {
       .then((e) => {
         setLat(e[0].lat)
         setLon(e[0].lon)
-      } );
+      })
+      .catch((err)=>{
+        console.log(err.message);
+        setError({classname: 'ps-2 w-3/5 border border-red-500 rounded focus:outline-red-500', placeholder: 'Uh-Oh something went wrong'})
+      });
     }
 
     useEffect(() => {
+
       const fetchdata = async (): Promise<Response> => {
         return await fetch(`https://api.weather.gov/points/${coordinates}`,
         {method: 'GET',})
@@ -66,7 +76,12 @@ function GetLocation(hours:number): [any, any, any, any] {
         getDailyWeather(e.properties.forecast)
         setCity(e.properties.relativeLocation.properties.city)
         setState(e.properties.relativeLocation.properties.state)
-      } );;
+      })
+      .catch((err) => {
+        console.log(err.message);
+        setError({classname: 'ps-2 w-3/5 border border-red-500 rounded focus:outline-red-500', placeholder: 'Uh-Oh, try a location in the US'})
+      });
+      
     }, [lat])
 
     const getHourlyWeather = async (api:any) => {
@@ -74,6 +89,7 @@ function GetLocation(hours:number): [any, any, any, any] {
       {method: 'GET',})
       .then((e) => e.json())
       .then((e) => setHourly(e.properties.periods as WeatherDetails[]))
+      setError(defaultForm)
     }
 
     const getDailyWeather = async (api:any) => {
@@ -87,7 +103,7 @@ function GetLocation(hours:number): [any, any, any, any] {
 
     const addressform = (
       <form onSubmit={locationfunction}>
-        <label><input type="text" name='userinput' placeholder="Input an Address, Zip Code, or City" className="w-3/5 border border-blue-500 rounded" /></label>
+        <label><input type="text" name='userinput' placeholder={Error.placeholder} className={Error.classname} value={formValues} onChange={(e) => {setFormValues(e.target.value)}}/></label>
 
         <ColorButton type="submit" className="p-2"/>
       </form>
