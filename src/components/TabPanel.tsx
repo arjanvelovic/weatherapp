@@ -16,7 +16,7 @@ function TabPanel(props: TabPanelProps) {
       {...other}
     >
       {value === index && (
-        <div className='px-2 h-96'>
+        <div className='h-80'>
           {children}
         </div>
       )}

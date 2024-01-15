@@ -8,20 +8,14 @@
 }
 
 .article {
-  height: 100%;
+  min-height: 100vh;
+  height: fit-content;
   position: relative;
   overflow: hidden;
 }
 
-.picture {
-  object-fit: cover;
-  width: 100%;
-  height: 100%;
-  border: 2px solid rgb(205, 137, 250)
-}
-
 .header {
-  position: absolute;
+  position: relative;
   top: 0;
   bottom: 0;
   left: 0;
@@ -29,32 +23,60 @@
   height: fit-content;
 }
 
-.footer{
-position: absolute;
-bottom: 0;
-}
-
 #page-container {
-position: relative;
-min-height: calc(100vh - 80px);
+  position: relative;
+  min-height: 100%;
+  }
+
+
+.footer{
+  position: absolute;
+  bottom: 0;
+  }
+
+.TempText{
+  font-size:40px;
 }
 
-#content-wrap {
-padding-bottom: 2.5rem;    /* Footer height */
+.LocationText{
+  font-size:22px;
 }
 
-#TitleText{
-  font-size:30px;
-}
-
-#HeaderText{
-  font-size:25px;
-}
-
-#SubtitleText{
-  font-size:20px;
-}
-
-#ParagraphText{
+.SubtitleText{
   font-size:16px;
+}
+
+.ParagraphText{
+  font-size:14px;
+}
+
+@media only screen and (min-width: 40em) {
+  .TempText{ font-size:43px;}
+  .LocationText{ font-size:25px;}
+  .SubtitleText{ font-size:18px;}
+  .ParagraphText{ font-size:15px;}
+}
+
+/* Medium devices such as tablets (768px and up) */
+@media only screen and (min-width: 48em) {
+  .TempText{ font-size: 45px;}
+  .LocationText{ font-size: 25px;}
+  .SubtitleText{ font-size: 18px;}
+  .ParagraphText{ font-size: 15px;}
+}
+
+/* Large devices such as laptops (1024px and up) */
+@media only screen and (min-width: 64em) {
+  .TempText{ font-size: 45px;}
+  .LocationText{ font-size: 28px;}
+  .SubtitleText{ font-size: 19px;}
+  .ParagraphText{ font-size: 17px;}
+}
+
+/* Largest devices such as desktops (1280px and up) */
+@media only screen and (min-width: 80em) {
+  .TempText{ font-size: 50px}
+  .LocationText{ font-size: 30px}
+  .SubtitleText{ font-size: 20px}
+  .ParagraphText{ font-size: 17px}
 }

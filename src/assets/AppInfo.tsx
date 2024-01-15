@@ -45,26 +45,8 @@ const AppInfo:Object = {
     },
 
     'footer': {
-        'logo': 'images/logo',
-        'copyright': '©2024 Created by Arjan Velovic',
+        'copyright': '©2024 Arjan Velovic',
         'crlink': 'https://velovicportfolio.netlify.app/',
-        'links': [
-        {
-            'name': 'Link1',
-            'logo': 'fa-solid fa-link',
-            'link': 'https://Link1'
-        },
-        {
-            'name': 'Link2',
-            'logo': 'fa-solid fa-link',
-            'link': 'https://Link2'
-        },
-        {
-            'name': 'email',
-            'logo': 'fa-solid fa-envelope',
-            'link': 'mailto:emailaddress@email.com'
-        },
-        ]
     }
 
 }

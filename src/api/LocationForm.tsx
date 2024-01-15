@@ -1,5 +1,4 @@
 import { useState, useEffect } from "react";
-import ColorButton from "../components/ColorButton";
 
 
 interface WeatherDetails {
@@ -19,11 +18,11 @@ interface WeatherDetails {
   isDaytime: boolean
   }
 
-function GetLocation(hours:number): [any, any, any, any] {
+function LocationForm(hours:number): [any, any, any, any] {
 
     const key = '659effe85cc3c335889818uhkf02452'
 
-    const defaultForm = ({classname: 'ps-2 w-3/5 rounded focus:outline-blue-500', placeholder: 'Input an Address, Zip Code, or City'})
+    const defaultForm = ({classname: 'border-b border-slate-50 focus:outline-blue-500', placeholder: 'Enter a US Address, Zip Code, or City'})
     const [formValues, setFormValues]=useState("")
     const [Error, setError] = useState(defaultForm)
     
@@ -58,7 +57,7 @@ function GetLocation(hours:number): [any, any, any, any] {
       })
       .catch((err)=>{
         console.log(err.message);
-        setError({classname: 'ps-2 w-3/5 border border-red-500 rounded focus:outline-red-500', placeholder: 'Uh-Oh something went wrong'})
+        setError({classname: 'border-b border-red-500 placeholder:text-red-500 placeholder:text-opacity-70', placeholder: 'Uh-Oh, try another location'})
       });
     }
 
@@ -79,7 +78,7 @@ function GetLocation(hours:number): [any, any, any, any] {
       })
       .catch((err) => {
         console.log(err.message);
-        setError({classname: 'ps-2 w-3/5 border border-red-500 rounded focus:outline-red-500', placeholder: 'Uh-Oh, try a location in the US'})
+        setError({classname: 'border-b border-red-500 placeholder:text-red-500 placeholder:text-opacity-70', placeholder: 'Uh-Oh, try a location in the US'})
       });
       
     }, [lat])
@@ -103,14 +102,11 @@ function GetLocation(hours:number): [any, any, any, any] {
 
     const addressform = (
       <form onSubmit={locationfunction}>
-        <label><input type="text" name='userinput' placeholder={Error.placeholder} className={Error.classname} value={formValues} onChange={(e) => {setFormValues(e.target.value)}}/></label>
-
-        <ColorButton type="submit" className="p-2"/>
+        <input className={Error.classname + "appearance-none w-80 bg-transparent text-slate-50 ps-2 focus:outline-none "} type="text" name='userinput' placeholder={Error.placeholder} value={formValues} onChange={(e) => {setFormValues(e.target.value)}} autoComplete="off"></input>
       </form>
     )
     
-
   return[addressform , dailyweather, hourlyweather.slice(0,hours), nwsCity]
   }
   
-  export default GetLocation
+  export default LocationForm
