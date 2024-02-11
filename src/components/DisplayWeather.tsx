@@ -16,8 +16,7 @@ function DisplayWeather() {
     const hours: number = 24
     const [addressForm, dailyWeather, hourlyWeather, newCity] = LocationForm(hours)
     const currentWeather = hourlyWeather[0]
-
-
+    
     // Logic to create data for hourly graphs
     // **************************************
     var timelog = Array<any>(hours).fill(0)
@@ -35,7 +34,6 @@ function DisplayWeather() {
         shortlog[i] = hourlyWeather[i]?.shortForecast
     }
     
-
     // Logic to create data for weekly forecast
     // *****************************************
     const dayname = ['Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat']
@@ -88,9 +86,7 @@ function DisplayWeather() {
         return [background, indicatorColor, chartcolor]
     }
 
-    const [background, indicatorColor, chartcolor] = BackgroundRender(true)
-
-    
+    const [background, indicatorColor, chartcolor] = BackgroundRender(currentWeather?.isDaytime)
 
     // For Tabs
     // ********
