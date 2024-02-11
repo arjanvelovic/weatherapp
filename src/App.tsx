@@ -1,10 +1,11 @@
-import Home from './pages/Home';
+import DisplayWeather from './components/DisplayWeather';
+
 
 function App() {
 
   return (
     <div id="page-container">
-        <Home/>
+        <DisplayWeather/>
     </div>
   )
 }
