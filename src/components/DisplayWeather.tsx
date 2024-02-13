@@ -1,14 +1,16 @@
 import { useState } from 'react';
-import LocationForm from '../api/LocationForm'
+
 import { LineChart } from '@mui/x-charts/LineChart';
 import Tabs from '@mui/material/Tabs';
 import Tab from '@mui/material/Tab';
-import TabPanel from './TabPanel';
-import DisplayIcon from './DisplayIcon';
 import Accordion from '@mui/material/Accordion';
 import AccordionDetails from '@mui/material/AccordionDetails';
 import AccordionSummary from '@mui/material/AccordionSummary';
 import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
+
+import LocationForm from '../api/LocationForm'
+import DisplayIcon from './DisplayIcon';
+import TabPanel from './TabPanel';
 import Footer from './Footer';
 
 
@@ -157,7 +159,7 @@ function DisplayWeather() {
 
         {/* Line Chart Section - hiddem when <medium */}
         <div className='w-full max-w-7xl mt-2 ms-4 hidden md:grid'>
-            <div className='   text-center'>
+            <div className='text-center'>
                 <div className='SubtitleText underline'>Hourly Forecast</div>
                 {/* @ts-ignore */}
                 <Tabs value={value} onChange={handleChange} aria-label="inherit tabs example" centered textColor="inherit"
