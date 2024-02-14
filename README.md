@@ -16,7 +16,7 @@ Welcome to the Weather App repository! This application displays the current, ho
 - [National Weather Service API:](https://www.weather.gov/documentation/services-web-api) Provides weather data for various locations.
 - [GeoCode API:](https://geocode.maps.co/) Retrieves location information based on user inputs.
 
-### [Live Demo](https://velovicweatherapp.netlify.app/)
+### [Live Demo](https://velovicweather.netlify.app/)
 
 ## 
 Feel free to explore and utilize this Weather App for your own needs! If you have any questions or need further assistance, please don't hesitate to ask. Thank you for your interest! 🌦️
