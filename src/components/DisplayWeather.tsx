@@ -78,12 +78,12 @@ function DisplayWeather() {
         
         if (isDaytime) {
             background = 'article grid bg-gradient-to-b from-blue-500 to-cyan-500'
-            indicatorColor = 'secondary'
-            chartcolor = '#A320F3'
+            indicatorColor = 'primary'
+            chartcolor = '#F5F5F5'
         } else {
             background = 'article grid bg-gradient-to-b from-violet-700 to-blue-800'
             indicatorColor = 'primary'
-            chartcolor = '#3CA8FF'
+            chartcolor = '#0099ff'
         }
         return [background, indicatorColor, chartcolor]
     }
@@ -101,16 +101,16 @@ function DisplayWeather() {
     // SX props for line chart
     const sxprops = {
         "& .MuiChartsAxis-bottom .MuiChartsAxis-line ":{
-         stroke:"#FFFFFF",
+         stroke:"#F5F5F5",
         },
         "& .MuiChartsAxis-bottom .MuiChartsAxis-tick ":{
-           stroke:"#FFFFFF",
+           stroke:"#F5F5F5",
           },
         "& .MuiChartsAxis-left .MuiChartsAxis-line":{
-         stroke:"#FFFFFF",
+         stroke:"#F5F5F5",
         },
         "& .MuiChartsAxis-left .MuiChartsAxis-tick ":{
-           stroke:"#FFFFFF",
+           stroke:"#F5F5F5",
           },
      }
 
@@ -172,9 +172,9 @@ function DisplayWeather() {
             </div>
             <TabPanel value={value} index={0}>
                 <LineChart
-                xAxis={[{ data: timelog, tickNumber:hours , scaleType: 'time', tickLabelStyle: {fill: '#FFFFFF'}}]}
+                xAxis={[{ data: timelog, tickNumber:hours , scaleType: 'time', tickLabelStyle: {fill: '#F5F5F5'}}]}
                 yAxis={[{ min:Math.min(...templog)-1, max:Math.max(...templog)+1, label: 'Temperature °F', labelStyle:{
-                    fill: '#FFFFFF'}, tickLabelStyle: {fill: '#FFFFFF'}}]}
+                    fill: '#F5F5F5'}, tickLabelStyle: {fill: '#F5F5F5'}}]}
                 series={[
                 {
                     data: templog,
@@ -187,9 +187,9 @@ function DisplayWeather() {
             </TabPanel>
             <TabPanel value={value} index={1}>
                 <LineChart
-                xAxis={[{ data: timelog, tickNumber:hours , scaleType: 'time', tickLabelStyle: {fill: '#FFFFFF'}}]}
+                xAxis={[{ data: timelog, tickNumber:hours , scaleType: 'time', tickLabelStyle: {fill: '#F5F5F5'}}]}
                 yAxis={[{ min:Math.min(...perciplog)-1, max:Math.max(...perciplog)+1, label: 'Percipitation %', labelStyle:{
-                    fill: '#FFFFFF'}, tickLabelStyle: {fill: '#FFFFFF'}}]}
+                    fill: '#F5F5F5'}, tickLabelStyle: {fill: '#F5F5F5'}}]}
                 series={[
                 {
                     data: perciplog,
@@ -202,9 +202,9 @@ function DisplayWeather() {
             </TabPanel>
             <TabPanel value={value} index={2}>
                 <LineChart
-                xAxis={[{ data: timelog, tickNumber:hours , scaleType: 'time', tickLabelStyle: {fill: '#FFFFFF'}}]}
+                xAxis={[{ data: timelog, tickNumber:hours , scaleType: 'time', tickLabelStyle: {fill: '#F5F5F5'}}]}
                 yAxis={[{ min:Math.min(...humidlog)-1, max:Math.max(...humidlog)+1, label: 'Humidity %', labelStyle:{
-                    fill: '#FFFFFF'}, tickLabelStyle: {fill: '#FFFFFF'}}]}
+                    fill: '#F5F5F5'}, tickLabelStyle: {fill: '#F5F5F5'}}]}
                 series={[
                 {
                     data: humidlog,
@@ -217,9 +217,9 @@ function DisplayWeather() {
             </TabPanel>
             <TabPanel value={value} index={3}>
                 <LineChart
-                xAxis={[{ data: timelog, tickNumber:hours , scaleType: 'time', tickLabelStyle: {fill: '#FFFFFF'}}]}
+                xAxis={[{ data: timelog, tickNumber:hours , scaleType: 'time', tickLabelStyle: {fill: '#F5F5F5'}}]}
                 yAxis={[{ min:Math.min(...windlog)-1, max:Math.max(...windlog)+1, label: 'Wind mph', labelStyle:{
-                    fill: '#FFFFFF'}, tickLabelStyle: {fill: '#FFFFFF'}}]}
+                    fill: '#F5F5F5'}, tickLabelStyle: {fill: '#F5F5F5'}}]}
                 series={[
                 {
                     data: windlog,
